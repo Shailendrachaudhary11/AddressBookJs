@@ -49,16 +49,29 @@ class AddressBookContact {
     }
 }
 
+// Create an Address Book Array
+let addressBook = [];
+
+// Function to Add a New Contact to Address Book
+const addContact = (contact) => {
+    addressBook.push(contact);
+    console.log("Contact added successfully!");
+};
+
 // Example Usage
 try {
     const contact1 = new AddressBookContact("John", "Doe", "123 Main St", "New York", "NY", "100001", "9876543210", "john.doe@example.com");
-    console.log(contact1.getDetails());
+    addContact(contact1);
 
     const contact2 = new AddressBookContact("Alice", "Smith", "456 Park Ave", "Los Angeles", "CA", "900001", "9123456789", "alice.smith@example.com");
-    console.log(contact2.getDetails());
+    addContact(contact2);
+
+    console.log("\nAddress Book Contacts:");
+    addressBook.forEach(contact => console.log(contact.getDetails()));
 
     // Invalid Contact (Uncomment to Test Error)
     // const invalidContact = new AddressBookContact("jo", "do", "St", "NY", "NY", "123", "98765", "john@com");
+    // addContact(invalidContact);
 } catch (error) {
     console.error("Error:", error.message);
 }
